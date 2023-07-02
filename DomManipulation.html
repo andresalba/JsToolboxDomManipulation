@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<body>
+
+		<h1>Dom Manipulation Techniques</h1>
+
+		<h2>Subtitle</h2>
+		<p id="par">paragraph</p>
+		<p id="rem">removed</p>
+		<span id="test" data-test="test atribute">Added atribute</span>
+		<p id="clase" class="class1, class2">class</p>
+
+		<script>
+		
+			// append
+			const body = document.body
+			body.append('appended string,', ' another appended str')
+	
+			// create element
+			const div0 = document.createElement("div")
+
+			// add text
+			div0.innerText = "created div"
+			body.append(div0)
+
+			// add content
+			const div1 = document.createElement("div")
+			div1.textContent = "created content"
+			body.append(div1)
+
+			// add HTML
+			const div2 = document.createElement("div")
+			div2.innerHTML = "<strong>Inner HTML</strong>"
+			body.append(div2)
+
+			// add HTML on a more secure way (avoid user adding HTML)
+			const div3 = document.createElement("strong")
+			div3.innerHTML = "Secure HTML"
+			body.append(div3)
+
+			// find element
+			const par = document.querySelector("p")
+			par.textContent = "changed content"
+
+			// remove
+			const remo = document.querySelector("#rem")
+			remo.remove()
+
+			// find attribute, print id of par
+			console.log(par.getAttribute("id")) 
+
+			// print added atribute
+			const added = document.querySelector("#test")
+			console.log(added.dataset.test)
+
+			// add another attribute
+			added.dataset.nuevoTest = "new added attribute"
+
+			// modify classes
+			const classed = document.querySelector("#clase")
+			classed.classList.add("class3") //add new class
+			classed.classList.remove("class2") //remove class
+			classed.classList.toggle("class1") // !class
+
+			// css property
+			classed.style.color = "red"
+			added.style.backgroundColor = "yellow"
+
+		</script>
+
+	</body>
+</html>
